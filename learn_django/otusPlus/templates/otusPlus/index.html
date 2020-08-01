@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Otus Plus index</title>
+    <title>Обучение в ОТУСе</title>
 </head>
 <body>
 <div>
-    <h1>Hello, Otus Blog Index!</h1>
-
+    <h1>Привет всем!</h1>
+    <h3>Все документы курса:</h3>
+    <ul>
+        {% for document in all_docs %}
+            <li>
+                <div>
+                    Название документа: {{ document.title }}
+                    Вид документа: {{ document.type_of_doc }}
+                </div>
+                <div>
+                    Автор: {{ document.author }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h3>Все студенты:</h3>
+    <ul>
+        {% for student in all_students %}
+        <li>
+            <div>
+                Студент: {{ student.full_name }}
+            </div>
+            <div>
+                Email студента: {{ student.email }}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 </body>
 </html>
