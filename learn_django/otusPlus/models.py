@@ -1,27 +1,7 @@
 from django.db import models
 
 
-class Course(models.Model):
-
-    WHAT_TO_LEARN = (
-        (1, 'CSS'),
-        (2, 'HTML'),
-        (3, 'JavaScript'),
-        (4, 'Python'),
-        (5, 'C++'),
-    )
-
-    title = models.CharField(max_length=100)
-    what_to_learn = models.IntegerField(choices=WHAT_TO_LEARN)
-
-    @property
-    def __str__(self):
-        return self.title
-
-    teacher = models.ForeignKey(Teacher, on_delete=PROTECT)
-
-
-class Teacher(models.Model):
+class Author(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -33,25 +13,8 @@ class Teacher(models.Model):
     def __str__(self):
         return self.full_name
 
-    course = models.ForeignKey(Course, on_delete=models.PROTECT)
 
-
-class Student(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
-
-    @property
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
-
-    def __str__(self):
-        return self.full_name
-
-    course = models.ForeignKey(Course, on_delete=models.PROTECT)
-
-
-class Documents(models.Model):
+class Document(models.Model):
 
     TYPE_OF_DOC = (
         (1, 'article'),
@@ -82,7 +45,7 @@ class Documents(models.Model):
         return self.title
 
 
-class Author(models.Model):
+class Teacher(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -94,7 +57,36 @@ class Author(models.Model):
     def __str__(self):
         return self.full_name
 
-    document = models.ForeignKey(Documents, on_delete=models.PROTECT)
+
+class Course(models.Model):
+
+    WHAT_TO_LEARN = (
+        (1, 'CSS'),
+        (2, 'HTML'),
+        (3, 'JavaScript'),
+        (4, 'Python'),
+        (5, 'C++'),
+    )
+
+    title = models.CharField(max_length=100)
+    what_to_learn = models.IntegerField(choices=WHAT_TO_LEARN)
+
+    @property
+    def __str__(self):
+        return self.title
+
+
+class Student(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
+    def __str__(self):
+        return self.full_name
 
 
 class Lesson(models.Model):
@@ -109,6 +101,7 @@ class Lesson(models.Model):
 
 class Calendar(models.Model):
     date = models.DateField()
-    lesson = models.ForeignKey(Lesson, on_delete=PROTECT)
-    teacher = models.ForeignKey(Teacher, on_delete=PROTECT)
+    time = models.TimeField()
+
+
 

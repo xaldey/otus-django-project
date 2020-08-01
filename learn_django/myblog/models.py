@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Author(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -20,7 +21,6 @@ class Article(models.Model):
     TTR_5_15 = 3
     TTR_15_30 = 4
     TTR_G_30 = 5
-
 
     TIME_TO_READ = (
         (TTR_L_1, '< 1 min'),
