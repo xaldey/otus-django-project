@@ -36,3 +36,9 @@ class TeacherAdmin(admin.ModelAdmin):
 class CourseAdmin(admin.ModelAdmin):
     list_display = "id", "title", "what_to_learn", "teacher"
     list_display_links = "title", "teacher"
+
+
+@admin.register(Lesson)
+class LessonAdmin(admin.ModelAdmin):
+    list_display = "id", "theme_of_lesson", "course", "teacher", "date_time_of_lesson"
+    list_display_links = "theme_of_lesson", "teacher", "date_time_of_lesson"
