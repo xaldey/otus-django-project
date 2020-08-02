@@ -7,6 +7,22 @@
 <body>
 <div>
     <h1>Привет всем!</h1>
+
+    <h3>Ближайшие занятия:</h3>
+    <div>
+        <ul>
+            {% for lesson in all_lessons %}
+            <ul>
+                <li>
+                    <div>Время урока: {{ lesson.date_time_of_lesson }}</div>
+                    <div>Тема урока: {{ lesson.theme_of_lesson }}</div>
+                    <div>Курс: {{ lesson.course }}</div>
+                    <div>Преподаватель: {{ lesson.teacher }}</div>
+                </li>
+            </ul>
+            {% endfor %}
+        </ul>
+    </div>
     <h3>Все документы курса:</h3>
     <ul>
         {% for document in all_docs %}
@@ -72,6 +88,7 @@
      <div>
         This page url: {% url 'otusPlus:index' %}
     </div>
+
 </div>
 </body>
 </html>
