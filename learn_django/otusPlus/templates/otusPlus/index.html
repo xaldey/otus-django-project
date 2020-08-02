@@ -12,9 +12,18 @@
         {% for document in all_docs %}
             <li>
                 <div>
-                    Название документа: {{ document.title }}
-                    Вид документа: {{ document.type_of_doc }}
+                    <b>Название документа:</b> {{ document.title }}
                 </div>
+                <div>
+                    Тип вида документа: {{ document.get_type_of_doc_display }}
+                </div>
+<!--                <div>-->
+<!--                    <ul>-->
+<!--                        {% for key, value in document.TYPE_OF_DOC %}-->
+<!--                        <li>{{ key }} : {{ value }}</li>-->
+<!--                        {% endfor %}-->
+<!--                    </ul>-->
+<!--                </div>-->
                 <div>
                     Автор: {{ document.author }}
                 </div>
@@ -59,7 +68,10 @@
         {% endfor %}
     </ul>
     <hr>
-    <h3></h3>
+    <h3>URL страницы</h3>
+     <div>
+        This page url: {% url 'otusPlus:index' %}
+    </div>
 </div>
 </body>
 </html>
