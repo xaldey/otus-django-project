@@ -12,7 +12,9 @@ def index_view(request):
         'foo': 'bar',
         'document': document,
         'all_docs': Document.objects.all(),
-        'all_students': Student.objects.all()
+        'all_students': Student.objects.all(),
+        'all_courses': Course.objects.all(),
+        'all_teachers': Teacher.objects.all(),
 
     }
     return render(request, 'otusPlus/index.html', context=context)

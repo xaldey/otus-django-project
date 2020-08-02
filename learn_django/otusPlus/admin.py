@@ -23,15 +23,16 @@ class DocumentAdmin(admin.ModelAdmin):
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
     list_display = "id", "first_name", "last_name", "full_name"
-    list_display_links = "full_name", "last_name"
+    list_display_links = "full_name", "last_name", "first_name"
 
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     list_display = "id", "first_name", "last_name", "full_name"
-    list_display_links = "full_name", "last_name"
+    list_display_links = "full_name", "last_name", "first_name"
 
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = "id", "title", "what_to_learn"
+    list_display = "id", "title", "what_to_learn", "teacher"
+    list_display_links = "title", "teacher"

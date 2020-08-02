@@ -35,6 +35,31 @@
         </li>
         {% endfor %}
     </ul>
+    <hr>
+    <h3>Все курсы:</h3>
+    <ul>
+        {% for course in all_courses %}
+        <li>
+            <div>
+                Наименование курса: {{ course.title }}
+            </div>
+                <div>Преподаватель: {{ course.teacher }}</div>
+            <div>
+                Студент:
+                <ul>
+                    {% for student in course.students.all %}
+                    <li>
+                        Имя студента: {{ student.full_name }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </li>
+
+        {% endfor %}
+    </ul>
+    <hr>
+    <h3></h3>
 </div>
 </body>
 </html>
