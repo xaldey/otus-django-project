@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from datetime import datetime
 
-from .models import Author, Document, Course, Student, Teacher, Lesson
+from learn_django.otusPlus.models import Author, Document, Course, Student, Teacher, Lesson
 
 
 def index_view(request):
@@ -20,4 +20,4 @@ def index_view(request):
         'hot_lessons': Lesson.objects.all()
 
     }
-    return render(request, 'otusPlus/index.html', context=context)
+    return render(request, 'index.html', context=context)

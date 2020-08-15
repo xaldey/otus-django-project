@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+from learn_django.otusPlus.views.views import index_view
+# from learn_django.otusPlus.views.views import index_view
+# import learn_django.otusPlus.views.cb_views as class_based_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('myblog.urls')),
-    path('otus/', include('otusPlus.urls')),
+    path('otus/', index_view),
 ]

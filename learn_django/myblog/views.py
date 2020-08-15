@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from .models import Author, Article
 
+
 def index_view(request):
     # return HttpResponse('<h1>Hello, Django index!</h1>')
 
