@@ -6,7 +6,6 @@ from learn_django.otusPlus.models import Author, Document, Course, Student, Teac
 
 
 def index_view(request):
-    # return HttpResponse('<h1>Hello, OtusPlus index!</h1>')
     right_now = datetime.now()
     document = Document.objects.get(pk=1)
     context = {
